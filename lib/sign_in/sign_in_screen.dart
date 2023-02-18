@@ -39,10 +39,11 @@ class _SignInScreenState extends State<SignInScreen> {
         padding: const EdgeInsets.only(
           left: 50,
           right: 50,
-          bottom: 60,
+          bottom: 40,
         ),
         alignment: Alignment.bottomCenter,
         child: MaterialButton(
+          elevation: 8,
           height: 50,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           padding: const EdgeInsets.symmetric(vertical: 15),

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:booksella/all_news/bloc/all_news_bloc.dart';
+import 'package:booksella/chat/bloc/chat_bloc.dart';
 import 'package:booksella/common/repository/auth_service.dart';
 import 'package:booksella/sign_in/bloc/sign_in_bloc.dart';
 import 'package:booksella/splash/bloc/splash_bloc.dart';
@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<SignInBloc>(
           create: (BuildContext context) => SignInBloc(),
         ),
-        BlocProvider<AllNewsBloc>(
-          create: (BuildContext context) => AllNewsBloc(),
+        BlocProvider<ChatBloc>(
+          create: (BuildContext context) => ChatBloc(),
         ),
         BlocProvider<SplashBloc>(
           create: (BuildContext context) => SplashBloc(),

@@ -1,6 +1,6 @@
-import 'package:booksella/all_news/bloc/all_news_bloc.dart';
-import 'package:booksella/all_news/bloc/all_news_event.dart';
-import 'package:booksella/all_news/bloc/all_news_state.dart';
+import 'package:booksella/chat/bloc/chat_bloc.dart';
+import 'package:booksella/chat/bloc/chat_event.dart';
+import 'package:booksella/chat/bloc/chat_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,7 +15,7 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<AllNewsBloc, AllNewsState>(
+      body: BlocBuilder<ChatBloc, ChatState>(
         builder: (context, state) {
           return Container(
             height: double.infinity,
@@ -27,8 +27,8 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
                 MaterialButton(
                   color: Colors.black,
                   onPressed: () {
-                    BlocProvider.of<AllNewsBloc>(context)
-                        .add(LogOutAllNewsEvnet(context: context));
+                    BlocProvider.of<ChatBloc>(context)
+                        .add(LogOutChatEvnet(context: context));
                   },
                   child: const Text(
                     'log out',

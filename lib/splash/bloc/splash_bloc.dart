@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:booksella/all_news/all_books_screen.dart';
+import 'package:booksella/chat/chat_screen.dart';
 import 'package:booksella/common/models/logger.dart';
 import 'package:booksella/common/repository/auth_service.dart';
 import 'package:booksella/sign_in/sign_in_screen.dart';
