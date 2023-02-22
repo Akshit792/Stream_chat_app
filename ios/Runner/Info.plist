@@ -4,6 +4,28 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>UIBackgroundModes</key>
+        <array>
+            <string>fetch</string>
+            <string>remote-notification</string>
+        </array>
+	<key>NSAppleMusicUsageDescription</key>
+    <string>Upload the music file from music files</string>	
+	<key>UISupportsDocumentBrowser</key>
+    <true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>Upload the photo from library</string>
+	<key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+	<key>NSCameraUsageDescription</key>
+    <string>Need to upload image from camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>Need to upload image</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

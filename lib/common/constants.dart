@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 enum ResultType { success, error }
 
 class Constants {
@@ -7,7 +9,8 @@ class Constants {
   static const BUNDLE_IDENTIFIER = "com.example.booksella";
   static const AUTH0_REDIRECT_URI = "$BUNDLE_IDENTIFIER://login-callback";
   static const Refresh_TOKEN_KEY = "refresh_token";
+  static const STREAM_API_KEY = String.fromEnvironment('STREAM_API_KEY');
 
-  //images
+  //Images
   static const chaticonImage = 'assets/images/chat_icon.png';
 }

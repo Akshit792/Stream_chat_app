@@ -1,8 +1,10 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:booksella/chat/chat_screen.dart';
+import 'package:booksella/common/models/auth0_profile.dart';
 import 'package:booksella/common/models/logger.dart';
 import 'package:booksella/common/repository/auth_service.dart';
+import 'package:booksella/common/repository/chat_repositoy.dart';
 import 'package:booksella/sign_in/bloc/sign_in_event.dart';
 import 'package:booksella/sign_in/bloc/sign_in_state.dart';
 import 'package:flutter/material.dart';
@@ -10,14 +12,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   bool isUserLoggedIn = false;
-
+  Auth0Profile? userProfile;
   SignInBloc() : super(InitialSignInState()) {
     on<Auth0SignInEvent>((event, emit) async {
       try {
         emit(LoadingSignInState());
         final authService = RepositoryProvider.of<Auth0Service>(event.context);
+        final chatRepo = RepositoryProvider.of<ChatRepository>(event.context);
 
         isUserLoggedIn = await authService.logIn();
+
+        if (authService.auth0Profile != null) {
+          userProfile = await chatRepo.connectUser(authService.auth0Profile!);
+        }
+
         if (isUserLoggedIn) {
           Navigator.of(event.context)
               .push(MaterialPageRoute(builder: (context) {
@@ -31,6 +39,5 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         LogPrint.error('$e Auth0 Sign In Event $s');
       }
     });
-    on<ReValidateTokenSignInEvent>((event, emit) async {});
   }
 }

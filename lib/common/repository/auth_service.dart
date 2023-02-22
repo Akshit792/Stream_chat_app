@@ -119,7 +119,7 @@ class Auth0Service {
       if (response.statusCode == 200) {
         auth0Profile = Auth0Profile.fromJson(jsonDecode(response.body));
       }
-
+      // check the issue
       return ResultType.success;
     } on UserProfileException catch (e) {
       LogPrint.error(e.message);

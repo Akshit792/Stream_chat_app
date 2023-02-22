@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:booksella/chat/bloc/chat_bloc.dart';
 import 'package:booksella/common/repository/auth_service.dart';
+import 'package:booksella/common/repository/chat_repositoy.dart';
 import 'package:booksella/sign_in/bloc/sign_in_bloc.dart';
 import 'package:booksella/splash/bloc/splash_bloc.dart';
 import 'package:booksella/splash/splash_screen.dart';
@@ -14,6 +15,8 @@ void main() {
     () => runApp(MultiRepositoryProvider(
       providers: [
         RepositoryProvider<Auth0Service>(create: (context) => Auth0Service()),
+        RepositoryProvider<ChatRepository>(
+            create: (context) => ChatRepository()),
       ],
       child: const MyApp(),
     )),

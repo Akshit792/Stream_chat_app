@@ -7,9 +7,3 @@ class Auth0SignInEvent extends SignInEvent {
 
   Auth0SignInEvent({required this.context});
 }
-
-class ReValidateTokenSignInEvent extends SignInEvent {
-  final BuildContext context;
-
-  ReValidateTokenSignInEvent({required this.context});
-}

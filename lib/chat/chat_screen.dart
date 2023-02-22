@@ -29,6 +29,7 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
                   onPressed: () {
                     BlocProvider.of<ChatBloc>(context)
                         .add(LogOutChatEvnet(context: context));
+                        
                   },
                   child: const Text(
                     'log out',

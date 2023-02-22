@@ -27,7 +27,7 @@ class Auth0Profile {
     required this.emailVerified,
   });
 
-  String get userId => sub;
+  String get userId => sub.split('|').join('');
 
   factory Auth0Profile.fromJson(Map<String, dynamic> json) =>
       _$Auth0ProfileFromJson(json);

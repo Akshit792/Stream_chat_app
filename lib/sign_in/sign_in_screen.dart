@@ -21,10 +21,6 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       body: BlocBuilder<SignInBloc, SignInState>(
         builder: (context, state) {
-          if (state is InitialSignInState) {
-            BlocProvider.of<SignInBloc>(context)
-                .add(ReValidateTokenSignInEvent(context: context));
-          }
           return IntroWidget(
             dyanmicWidget: _buildAuthButton(state),
           );

@@ -12,7 +12,9 @@
                 "--dart-define",
                 "AUTH0_DOMAIN=dev-mry8qlz1fx4iymxd.us.auth0.com",
                 "--dart-define",
-                "AUTH0_CLIENT_ID=7BNPYrL2dfCo3jkjx0PnEuqkbHV1qMbN"
+                "AUTH0_CLIENT_ID=7BNPYrL2dfCo3jkjx0PnEuqkbHV1qMbN",
+                "--dart-define",
+                "STREAM_API_KEY=we6n348smxfb"
             ]
         },
         {
