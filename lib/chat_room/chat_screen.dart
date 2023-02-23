@@ -1,6 +1,6 @@
-import 'package:booksella/chat/bloc/chat_bloc.dart';
-import 'package:booksella/chat/bloc/chat_event.dart';
-import 'package:booksella/chat/bloc/chat_state.dart';
+import 'package:booksella/chat_room/bloc/chat_bloc.dart';
+import 'package:booksella/chat_room/bloc/chat_event.dart';
+import 'package:booksella/chat_room/bloc/chat_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';

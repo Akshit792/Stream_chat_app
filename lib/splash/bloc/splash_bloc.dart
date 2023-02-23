@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:booksella/chat/chat_screen.dart';
+import 'package:booksella/chat_room/chat_screen.dart';
 import 'package:booksella/common/models/auth0_profile.dart';
 import 'package:booksella/common/models/logger.dart';
 import 'package:booksella/common/repository/auth_service.dart';

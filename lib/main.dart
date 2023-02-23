@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:booksella/chat/bloc/chat_bloc.dart';
+import 'package:booksella/chat_room/bloc/chat_bloc.dart';
 import 'package:booksella/common/repository/auth_service.dart';
 import 'package:booksella/common/repository/chat_repositoy.dart';
 import 'package:booksella/sign_in/bloc/sign_in_bloc.dart';
