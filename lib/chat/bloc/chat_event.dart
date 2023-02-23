@@ -8,3 +8,9 @@ class LogOutChatEvnet extends ChatEvent {
 
   LogOutChatEvnet({required this.context});
 }
+
+class CreateChatChannelEvent extends ChatEvent {
+  BuildContext context;
+
+  CreateChatChannelEvent({required this.context});
+}

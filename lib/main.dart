@@ -9,6 +9,7 @@ import 'package:booksella/splash/bloc/splash_bloc.dart';
 import 'package:booksella/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 void main() {
   runZonedGuarded(
@@ -53,6 +54,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: const SplashScreen(),
+        builder: (context, child) {
+          return StreamChat(
+            client: RepositoryProvider.of<ChatRepository>(context).client,
+            child: child,
+          );
+        },
       ),
     );
   }

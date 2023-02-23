@@ -6,6 +6,8 @@ import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 const bool isProduction = bool.fromEnvironment('dart.vm.product');
 
 class ChatRepository {
+  String? _currentChannelId;
+
   // Create client
   final client = StreamChatClient(
     Constants.STREAM_API_KEY,
@@ -23,5 +25,25 @@ class ChatRepository {
         // replace with production token in prod env
         client.devToken(authUser.userId).rawValue);
     return authUser;
+  }
+
+  // create chat support
+  Future<Channel> createSupportChat() async {
+    const employeeId = 'rootEmployeeId';
+    final channel = client.channel(
+      'support',
+      extraData: {
+        'name': 'Hask nossiit Chat support',
+        'members': [
+          employeeId,
+          client.state.currentUser!.id,
+        ],
+      },
+    );
+    // wait and watch for the messages
+    await channel.watch();
+    // when user keeps changing the pages no need to create a new channel id use the old one.
+    _currentChannelId = channel.id;
+    return channel;
   }
 }
