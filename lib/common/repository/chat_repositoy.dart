@@ -1,5 +1,6 @@
 import 'package:booksella/common/constants.dart';
 import 'package:booksella/common/models/auth0_profile.dart';
+import 'package:booksella/common/models/logger.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 // This will be true for the production and false for the debug and profile.
@@ -45,5 +46,13 @@ class ChatRepository {
     // when user keeps changing the pages no need to create a new channel id use the old one.
     _currentChannelId = channel.id;
     return channel;
+  }
+
+  Future<void> disconnectClient() async {
+    try {
+      await client.disconnectUser();
+    } catch (e, s) {
+      LogPrint.error('$e');
+    }
   }
 }

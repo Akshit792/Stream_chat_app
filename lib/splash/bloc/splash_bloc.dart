@@ -10,6 +10,7 @@ import 'package:booksella/splash/bloc/splash_event.dart';
 import 'package:booksella/splash/bloc/splash_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class SplashBloc extends Bloc<SplashEvents, SplashStates> {
   bool isUserReValidated = false;
@@ -21,11 +22,14 @@ class SplashBloc extends Bloc<SplashEvents, SplashStates> {
         emit(LoadingSplashState());
         final authService = RepositoryProvider.of<Auth0Service>(event.context);
         final chatRepo = RepositoryProvider.of<ChatRepository>(event.context);
+        final client = StreamChat.of(event.context).client;
 
         isUserReValidated = await authService.revalidateUser();
 
-        if (authService.auth0Profile != null) {
-          userProfile = await chatRepo.connectUser(authService.auth0Profile!);
+        if (client.wsConnectionStatus != ConnectionStatus.connected) {
+          if (authService.auth0Profile != null) {
+            userProfile = await chatRepo.connectUser(authService.auth0Profile!);
+          }
         }
 
         if (isUserReValidated) {

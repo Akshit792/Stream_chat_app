@@ -19,12 +19,15 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     on<LogOutChatEvnet>((event, emit) async {
       try {
         final authService = RepositoryProvider.of<Auth0Service>(event.context);
+
         var result = await authService.logOut();
+
         if (result) {
           Navigator.of(event.context).pushAndRemoveUntil(
               MaterialPageRoute(builder: (context) {
             return const SignInScreen();
           }), (route) => false);
+          // await chatRepo.disconnectClient();
         }
       } catch (e, s) {
         LogPrint.error('$e Log out all news event $s');

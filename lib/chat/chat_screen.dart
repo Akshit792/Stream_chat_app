@@ -29,12 +29,13 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
         }
         return Scaffold(
             appBar: AppBar(
+              backgroundColor: Colors.blue[800],
+              automaticallyImplyLeading: false,
               title: const Text('Chat room'),
               actions: [
                 IconButton(
                   onPressed: () {
-                    BlocProvider.of<ChatBloc>(context)
-                        .add(LogOutChatEvnet(context: context));
+                    showLogOutDialog(context);
                   },
                   icon: const Icon(Icons.power_settings_new),
                 )
@@ -71,6 +72,40 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
         style: const TextStyle(
           fontWeight: FontWeight.w700,
         ),
+      ),
+    );
+  }
+
+  void showLogOutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(
+          "Log out",
+          style:
+              TextStyle(fontWeight: FontWeight.w700, color: Colors.blue[800]!),
+        ),
+        content: const Text("Are you sure you want to log out?"),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              BlocProvider.of<ChatBloc>(context)
+                  .add(LogOutChatEvnet(context: context));
+            },
+            child: Container(
+              color: Colors.blue[800],
+              padding: const EdgeInsets.all(14),
+              child: const Text(
+                "okay",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

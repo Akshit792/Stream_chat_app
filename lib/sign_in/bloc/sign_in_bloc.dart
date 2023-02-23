@@ -9,6 +9,7 @@ import 'package:booksella/sign_in/bloc/sign_in_event.dart';
 import 'package:booksella/sign_in/bloc/sign_in_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   bool isUserLoggedIn = false;
@@ -19,11 +20,15 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         emit(LoadingSignInState());
         final authService = RepositoryProvider.of<Auth0Service>(event.context);
         final chatRepo = RepositoryProvider.of<ChatRepository>(event.context);
+        final client = StreamChat.of(event.context).client;
 
         isUserLoggedIn = await authService.logIn();
 
-        if (authService.auth0Profile != null) {
-          userProfile = await chatRepo.connectUser(authService.auth0Profile!);
+        // connect only if the user is not connected otherwise it will show an error user is alredy connected.
+        if (client.wsConnectionStatus != ConnectionStatus.connected) {
+          if (authService.auth0Profile != null) {
+            userProfile = await chatRepo.connectUser(authService.auth0Profile!);
+          }
         }
 
         if (isUserLoggedIn) {
