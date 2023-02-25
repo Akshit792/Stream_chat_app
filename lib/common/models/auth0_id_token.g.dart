@@ -21,6 +21,8 @@ Auth0IdToken _$Auth0IdTokenFromJson(Map<String, dynamic> json) => Auth0IdToken(
       iss: json['iss'] as String,
       sub: json['sub'] as String,
       authTime: json['auth_time'] as int?,
+      streamUserToken:
+          json['http://getstream.chatapp.app/user_token'] as String?,
     );
 
 Map<String, dynamic> _$Auth0IdTokenToJson(Auth0IdToken instance) =>
@@ -39,4 +41,5 @@ Map<String, dynamic> _$Auth0IdTokenToJson(Auth0IdToken instance) =>
       'sid': instance.sid,
       'nonce': instance.nonce,
       'auth_time': instance.authTime,
+      'http://getstream.chatapp.app/user_token': instance.streamUserToken,
     };

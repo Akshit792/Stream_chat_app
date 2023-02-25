@@ -14,6 +14,8 @@ Auth0Profile _$Auth0ProfileFromJson(Map<String, dynamic> json) => Auth0Profile(
       updatedAt: json['updated_at'] as String,
       email: json['email'] as String,
       emailVerified: json['email_verified'] as bool,
+      streamUserToken:
+          json['http://getstream.chatapp.app/user_token'] as String?,
     );
 
 Map<String, dynamic> _$Auth0ProfileToJson(Auth0Profile instance) =>
@@ -25,4 +27,5 @@ Map<String, dynamic> _$Auth0ProfileToJson(Auth0Profile instance) =>
       'updated_at': instance.updatedAt,
       'email': instance.email,
       'email_verified': instance.emailVerified,
+      'http://getstream.chatapp.app/user_token': instance.streamUserToken,
     };

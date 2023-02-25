@@ -24,6 +24,8 @@ class Auth0IdToken {
   final String? nonce;
   @JsonKey(name: 'auth_time')
   int? authTime;
+  @JsonKey(name: "http://getstream.chatapp.app/user_token")
+  final String? streamUserToken;
 
   Auth0IdToken({
     required this.email,
@@ -40,6 +42,7 @@ class Auth0IdToken {
     required this.iss,
     required this.sub,
     this.authTime,
+    required this.streamUserToken,
   });
 
   String get userId => sub;

@@ -1,0 +1,15 @@
+// This is a generated file; do not edit or check into version control.
+FLUTTER_ROOT=/Users/akshitsoni/development/flutter
+FLUTTER_APPLICATION_PATH=/Users/akshitsoni/Documents/booksella
+COCOAPODS_PARALLEL_CODE_SIGN=true
+FLUTTER_TARGET=/Users/akshitsoni/Documents/booksella/lib/main.dart
+FLUTTER_BUILD_DIR=build
+FLUTTER_BUILD_NAME=1.0.0
+FLUTTER_BUILD_NUMBER=1
+EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386
+EXCLUDED_ARCHS[sdk=iphoneos*]=armv7
+DART_DEFINES=QVVUSDBfRE9NQUlOPWRldi1tcnk4cWx6MWZ4NGl5bXhkLnVzLmF1dGgwLmNvbQ==,QVVUSDBfQ0xJRU5UX0lEPTdCTlBZckwyZGZDbzNqa2p4MFBuRXVxa2JIVjFxTWJO,U1RSRUFNX0FQSV9LRVk9d2U2bjM0OHNteGZi,RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ==
+DART_OBFUSCATION=false
+TRACK_WIDGET_CREATION=true
+TREE_SHAKE_ICONS=false
+PACKAGE_CONFIG=/Users/akshitsoni/Documents/booksella/.dart_tool/package_config.json

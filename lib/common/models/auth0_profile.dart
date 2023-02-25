@@ -16,6 +16,8 @@ class Auth0Profile {
   final String email;
   @JsonKey(name: "email_verified")
   final bool emailVerified;
+  @JsonKey(name: 'http://getstream.chatapp.app/user_token')
+  final String? streamUserToken;
 
   Auth0Profile({
     required this.sub,
@@ -25,6 +27,7 @@ class Auth0Profile {
     required this.updatedAt,
     required this.email,
     required this.emailVerified,
+    required this.streamUserToken,
   });
 
   String get userId => sub.split('|').join('');

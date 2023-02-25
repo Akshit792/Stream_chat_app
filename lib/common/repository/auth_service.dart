@@ -175,3 +175,9 @@ class UserProfileException implements Exception {
 
   UserProfileException({required this.message});
 }
+
+// auth0 actions
+// log in action
+// custom claim
+// to get our production stream production token from the auth0
+// added the custom claim in the login auth0 action part

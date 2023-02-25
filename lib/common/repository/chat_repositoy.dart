@@ -18,13 +18,15 @@ class ChatRepository {
   // connect the user to the client
   Future<Auth0Profile> connectUser(Auth0Profile authUser) async {
     await client.connectUser(
-        User(id: authUser.userId, extraData: {
-          'picture': authUser.picture,
-          'name': authUser.name,
-          'email': authUser.email,
-        }),
-        // replace with production token in prod env
-        client.devToken(authUser.userId).rawValue);
+      User(id: authUser.userId, extraData: {
+        'picture': authUser.picture,
+        'name': authUser.name,
+        'email': authUser.email,
+      }),
+      // replace with production token in prod env
+      //client.devToken(authUser.userId).rawValue => only for development with this cannot deploy the app
+      authUser.streamUserToken!,
+    );
     return authUser;
   }
 
