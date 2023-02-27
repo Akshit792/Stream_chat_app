@@ -31,7 +31,7 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
             appBar: AppBar(
               backgroundColor: Colors.blue[800],
               automaticallyImplyLeading: false,
-              title: const Text('Chat room'),
+              title: const Text('Welcome'),
               actions: [
                 IconButton(
                   onPressed: () {
