@@ -16,6 +16,13 @@ Auth0Profile _$Auth0ProfileFromJson(Map<String, dynamic> json) => Auth0Profile(
       emailVerified: json['email_verified'] as bool,
       streamUserToken:
           json['http://getstream.chatapp.app/user_token'] as String?,
+      roles: (json['https://users.chatapp.app/roles'] as List<dynamic>)
+          .map((e) => Auth0Role.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      permissions:
+          (json['https://users.chatapp.app/permissions'] as List<dynamic>)
+              .map((e) => Auth0Permission.fromJson(e as Map<String, dynamic>))
+              .toList(),
     );
 
 Map<String, dynamic> _$Auth0ProfileToJson(Auth0Profile instance) =>
@@ -28,4 +35,6 @@ Map<String, dynamic> _$Auth0ProfileToJson(Auth0Profile instance) =>
       'email': instance.email,
       'email_verified': instance.emailVerified,
       'http://getstream.chatapp.app/user_token': instance.streamUserToken,
+      'https://users.chatapp.app/roles': instance.roles,
+      'https://users.chatapp.app/permissions': instance.permissions,
     };

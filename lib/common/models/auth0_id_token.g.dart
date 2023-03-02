@@ -23,6 +23,13 @@ Auth0IdToken _$Auth0IdTokenFromJson(Map<String, dynamic> json) => Auth0IdToken(
       authTime: json['auth_time'] as int?,
       streamUserToken:
           json['http://getstream.chatapp.app/user_token'] as String?,
+      roles: (json['https://users.chatapp.app/roles'] as List<dynamic>)
+          .map((e) => Auth0Role.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      permissions:
+          (json['https://users.chatapp.app/permissions'] as List<dynamic>)
+              .map((e) => Auth0Permission.fromJson(e as Map<String, dynamic>))
+              .toList(),
     );
 
 Map<String, dynamic> _$Auth0IdTokenToJson(Auth0IdToken instance) =>
@@ -42,4 +49,6 @@ Map<String, dynamic> _$Auth0IdTokenToJson(Auth0IdToken instance) =>
       'nonce': instance.nonce,
       'auth_time': instance.authTime,
       'http://getstream.chatapp.app/user_token': instance.streamUserToken,
+      'https://users.chatapp.app/roles': instance.roles,
+      'https://users.chatapp.app/permissions': instance.permissions,
     };

@@ -30,7 +30,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
             userProfile = await chatRepo.connectUser(authService.auth0Profile!);
           }
         }
-
+        print('isUserLogedIn: $isUserLoggedIn');
         if (isUserLoggedIn) {
           Navigator.of(event.context)
               .push(MaterialPageRoute(builder: (context) {
