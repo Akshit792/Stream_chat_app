@@ -1,4 +1,4 @@
-# booksella
+# Stream Chat App
 
 A new Flutter project.
 
